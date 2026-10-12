@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 {
   "rewrites": [
     { "source": "/", "destination": "/INDEX.HTML" },
     { "source": "/signup", "destination": "/SIGNUP.HTML" }
   ]
+=======
+{
+  "rewrites": [
+    { "source": "/", "destination": "/INDEX.HTML" },
+    { "source": "/signup", "destination": "/SIGNUP.HTML" }
+  ]
+>>>>>>> 3cdae5c (first commit)
 }

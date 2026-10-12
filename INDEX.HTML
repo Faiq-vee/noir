@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -974,4 +975,982 @@ new MutationObserver(() => { app.querySelectorAll('.card').forEach((c, i) => c.s
 nav(); route();
 </script>
 </body>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Noir</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Ccircle cx='13' cy='13' r='11.5' fill='%23000' stroke='%23fff' stroke-width='1.8'/%3E%3Cpath d='M13 1.5a11.5 11.5 0 0 1 0 23z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0f0f;--s:#1a1a1a;--s2:#272727;--b:#303030;--t:#f1f1f1;--m:#aaaaaa;--a:#3ea6ff;--g:#ffc247;--r:16px;
+--f:'Satoshi','Segoe UI',system-ui,-apple-system,Roboto,sans-serif;--d:'Satoshi','Segoe UI',system-ui,-apple-system,Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;color:var(--t);font:15px/1.55 var(--f);background:radial-gradient(800px 500px at 90% -10%,#3ea6ff14,transparent 60%),radial-gradient(700px 500px at -10% 20%,#3ea6ff10,transparent 60%),var(--bg) fixed}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--d);margin:0}
+header{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;padding:12px clamp(14px,3vw,32px);background:#0f0f0fe6;backdrop-filter:blur(12px);border-bottom:1px solid var(--b)}
+.logo{display:flex;align-items:center;gap:9px;font:800 24px var(--d);letter-spacing:-.01em}
+.dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--g))}
+#search{flex:1;max-width:560px;position:relative;margin:0 auto}
+#search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--m)}
+#search input{padding-left:44px;border-radius:99px;background:var(--s)}
+nav{display:flex;gap:8px;align-items:center}
+input,select,textarea,button{font:inherit}
+input,select,textarea{width:100%;padding:11px 14px;background:var(--s);border:1px solid var(--b);border-radius:12px;color:var(--t)}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--a);color:#ffffff;border:0;border-radius:99px;padding:11px 20px;font-weight:600;cursor:pointer;transition:filter .15s}
+button:hover,.btn:hover{filter:brightness(1.08)}
+button:disabled{opacity:.5;cursor:default}
+.ghost{background:transparent;color:var(--t);border:1px solid var(--b)}
+.sm{padding:7px 14px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:20px clamp(14px,3vw,32px) 8px}
+.narrow{max-width:480px}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero{position:relative;border-radius:28px;overflow:hidden;min-height:clamp(260px,38vw,400px);display:flex;align-items:flex-end;padding:clamp(20px,4vw,44px);background:linear-gradient(120deg,hsl(var(--h) 55% 30%),hsl(calc(var(--h) + 35) 60% 11%));border:1px solid var(--b)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 280px at 82% 25%,hsl(var(--h) 90% 65% / .35),transparent 70%),linear-gradient(0deg,#000000d9,transparent 65%)}
+.hc{position:relative;max-width:580px}
+.hero h1{font-size:clamp(30px,5.4vw,56px);line-height:1.04;font-weight:800;margin:0 0 10px}
+.hero p{margin:0 0 18px;color:#ffffffcc}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0}
+.chip{padding:7px 16px;border:1px solid var(--b);border-radius:99px;white-space:nowrap;color:var(--m);background:var(--s)}
+.chip.on{background:var(--t);color:#000000;border-color:var(--t);font-weight:600}
+.sec{font-size:22px;font-weight:700;margin:26px 0 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px 20px;margin-top:14px}
+.card{display:block}
+.th{aspect-ratio:16/9;border-radius:16px;position:relative;overflow:hidden;background:linear-gradient(140deg,hsl(var(--h,220) 52% 32%),hsl(calc(var(--h,220) + 35) 58% 13%)) center/cover;border:1px solid #ffffff12}
+.th::after{content:"";position:absolute;inset:0;background:radial-gradient(160px 100px at 78% 18%,#ffffff26,transparent 70%),linear-gradient(0deg,#0009,transparent 55%)}
+.pl{position:absolute;inset:0;z-index:2;display:grid;place-items:center;opacity:0;transition:opacity .2s}
+.pl i{width:50px;height:50px;border-radius:50%;background:#fff;color:#000000;display:grid;place-items:center}
+.card:hover .pl,.card:focus-visible .pl{opacity:1}
+.bd,.du{position:absolute;z-index:2;display:flex;gap:5px;align-items:center;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:#000000b3;backdrop-filter:blur(6px);border:1px solid #ffffff1f}
+.bd{top:10px;left:10px}.du{bottom:10px;right:10px}
+.b-free{color:#4ade80}.b-ppv{color:var(--g)}.b-sub{color:#b794ff}
+.meta{display:flex;gap:12px;margin-top:12px}
+.meta h3{font-size:16px;line-height:1.25;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta p{margin:2px 0 0;color:var(--m);font-size:13px}
+.av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--d);font-style:normal;color:#fff;background:linear-gradient(135deg,hsl(var(--h) 62% 50%),hsl(calc(var(--h) + 35) 62% 34%))}
+.av.lg{width:48px;height:48px;font-size:16px}
+.demo{margin:0 0 16px;padding:10px 14px;border-radius:12px;border:1px dashed var(--b);color:var(--m);font-size:13px}
+.empty{text-align:center;padding:60px 16px;color:var(--m)}
+.watch{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px}
+@media(max-width:920px){.watch{grid-template-columns:1fr}}
+.player{aspect-ratio:16/9;background:#000;border-radius:20px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--b)}
+.player video{width:100%;height:100%}
+.vt{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.2;margin:18px 0 12px}
+.who{display:flex;gap:12px;align-items:center}
+.who b{display:block;line-height:1.2}
+.mini{display:grid;grid-template-columns:140px 1fr;gap:12px;margin-bottom:14px}
+.mini h4{font-size:14px;line-height:1.3;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mini p{margin:2px 0 0;color:var(--m);font-size:12px}
+aside h3{font-size:17px;margin-bottom:14px}
+.lockbg{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(140deg,hsl(var(--h) 48% 24%),hsl(calc(var(--h) + 30) 52% 9%))}
+.lock{background:#000000cc;backdrop-filter:blur(14px);border:1px solid #ffffff1f;border-radius:22px;padding:26px;text-align:center;max-width:400px;margin:14px}
+.lock svg{color:var(--g)}
+.lock h2{font-size:22px;margin:8px 0 4px}
+.lock p{margin:0 0 16px}
+.box{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:20px;margin:14px 0}
+.auth h1{font-size:30px;margin-bottom:16px}
+form.f{display:grid;gap:14px}
+label{font-size:13px;color:var(--m);display:grid;gap:5px}
+.muted{color:var(--m)}
+.tag{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--s2);border:1px solid var(--b);white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.stats b{display:block;font:700 26px var(--d);color:var(--g)}
+details{margin-top:10px}summary{cursor:pointer;color:#3ea6ff}
+.overlay{position:fixed;inset:0;z-index:99;background:#000000f2;display:grid;place-items:center;text-align:center;padding:24px}
+.overlay>div{max-width:440px}
+.overlay h1{font-size:44px;margin-bottom:12px}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--s2);border:1px solid var(--a);padding:11px 18px;border-radius:99px;display:none;z-index:120;max-width:90vw}
+footer{margin-top:48px;padding:32px 16px;text-align:center;color:var(--m);font-size:13px;border-top:1px solid var(--b)}
+@media(max-width:700px){header{flex-wrap:wrap}#search{order:3;flex-basis:100%;max-width:none}.hero{border-radius:22px}}
+
+.authwrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 73px)}
+.authside{position:relative;padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;justify-content:flex-end;gap:28px;background:linear-gradient(150deg,hsl(250 42% 22%),#0f0f0f);overflow:hidden}
+.authside::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 320px at 80% 10%,#ffffff1f,transparent 70%)}
+.authside>*{position:relative}
+.authside h2{font-size:clamp(28px,3.4vw,46px);line-height:1.08;font-weight:800;max-width:15ch}
+.perks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.perks li{display:flex;gap:12px;align-items:flex-start;color:#ffffffd9}
+.perks svg{flex:none;margin-top:3px;color:var(--g)}
+.authmain{display:grid;place-items:center;padding:clamp(24px,5vw,56px)}
+.fbox{width:100%;max-width:400px}
+.fbox h1{font-size:32px;margin-bottom:6px}
+.pw{position:relative;display:block}
+.pw input{padding-right:70px}
+.pw button{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;color:var(--m);padding:6px 10px;font-size:13px}
+.meter{display:flex;gap:4px}
+.meter i{flex:1;height:4px;border-radius:2px;background:var(--b)}
+.meter[data-l="1"] i:nth-child(1){background:#ff5252}
+.meter[data-l="2"] i:nth-child(-n+2){background:var(--g)}
+.meter[data-l="3"] i{background:#4ade80}
+.err{color:#ff7b7b;min-height:1.2em;margin:0;font-size:14px}
+.note{padding:10px 14px;border-radius:12px;background:#4ade8018;border:1px solid #4ade8066;color:#9df0bd;margin:0 0 18px}
+.chk{display:flex;gap:10px;align-items:flex-start;color:var(--t);font-size:14px}
+.chk input{width:18px;height:18px;padding:0;margin-top:2px;accent-color:var(--a);flex:none}
+.full{width:100%;padding:13px}
+.alt{margin-top:22px;color:var(--m)}
+.alt a{color:var(--t);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.sent{text-align:center}
+.sent svg{color:var(--g);margin-bottom:8px}
+@media(max-width:860px){.authwrap{grid-template-columns:1fr}.authside{display:none}}
+
+.shell{display:grid;grid-template-columns:84px minmax(0,1fr)}
+#rail{position:sticky;top:73px;height:calc(100vh - 73px);display:flex;flex-direction:column;gap:6px;padding:12px 6px;border-right:1px solid var(--b)}
+#rail a{display:grid;justify-items:center;gap:4px;padding:10px 0;border-radius:14px;font-size:11px;color:var(--m)}
+#rail a:hover{background:var(--s)}
+#rail a.on{color:var(--t);background:var(--s2)}
+#rail a.on svg{color:var(--a)}
+a.th{display:block}
+.card{display:flex;flex-direction:column;min-width:0}
+.more{position:absolute;inset:auto 0 0 0;z-index:3;padding:40px 14px 12px;background:linear-gradient(0deg,#000000f7 58%,transparent);transform:translateY(101%);transition:transform .25s ease}
+.more p{margin:0 0 8px;font-size:13px;line-height:1.4;color:#ffffffe6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:11px;padding:2px 9px;border-radius:99px;background:#ffffff1f}
+.card:hover .more,.card:focus-within .more{transform:none}
+.card:hover .th,.card:focus-within .th{border-color:#3ea6ff99}
+.card:hover .du,.card:focus-within .du{opacity:0}
+.meta a:hover{text-decoration:underline}
+.stat{display:flex;gap:10px}
+.acts{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:12px}
+.ib{width:38px;height:38px;padding:0;border-radius:50%;background:var(--s);color:var(--t);border:1px solid var(--b)}
+.ib.on{color:var(--a);border-color:var(--a)}
+.ib[data-t="l"]:hover{color:var(--a)}
+.ib[data-t="b"].on{color:#3ea6ff;border-color:#3ea6ff}
+button[data-buy]{background:#3ea6ff;color:#06121f}
+.ib.on svg{fill:currentColor}
+.fol{background:transparent;color:var(--t);border:1px solid #ffffff66;padding:8px 18px;font-size:13px}
+.fol.on{background:var(--s2);color:var(--t);border:1px solid var(--b)}
+.fol.big{padding:11px 24px;font-size:15px}
+.buy{flex:1}
+.crow{position:relative}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 4px}
+.track::-webkit-scrollbar{display:none}
+.track .card{flex:0 0 min(290px,78vw);scroll-snap-align:start}
+.nx{position:absolute;right:-6px;top:74px;width:44px;height:44px;padding:0;border-radius:50%;background:#000000eb;color:var(--t);border:1px solid var(--b);z-index:4}
+.nx.pv{right:auto;left:-6px}
+.abar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bn{height:clamp(90px,15vw,170px);border-radius:24px;background:linear-gradient(120deg,hsl(var(--h) 55% 30%),hsl(calc(var(--h) + 40) 58% 12%));border:1px solid var(--b)}
+.chan{display:flex;gap:clamp(16px,3vw,32px);align-items:center;flex-wrap:wrap;margin-top:22px}
+.av.big{width:clamp(88px,13vw,150px);height:clamp(88px,13vw,150px);font-size:clamp(28px,5vw,50px)}
+.chan h1{font-size:clamp(28px,4vw,42px);display:flex;gap:8px;align-items:center}
+.chan h1 svg{color:#3ea6ff;flex:none}
+.cbio{max-width:62ch;margin:8px 0 14px;color:#ffffffcc;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--b);margin:24px 0 4px;overflow-x:auto}
+.tabs a{padding:12px 16px;color:var(--m);border-bottom:2px solid transparent;font-weight:600;white-space:nowrap}
+.tabs a.on{color:var(--t);border-color:var(--t)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--s);border:1px solid var(--b);border-radius:99px;margin-bottom:22px}
+.seg a{text-align:center;padding:9px 8px;border-radius:99px;color:var(--m);font-weight:600;font-size:14px}
+.seg a.on{background:var(--t);color:#000000}
+.authside.cr{background:linear-gradient(150deg,hsl(205 48% 24%),#0f0f0f)}
+@media(max-width:760px){.shell{grid-template-columns:1fr;padding-bottom:70px}
+#rail{position:fixed;inset:auto 0 0 0;height:auto;flex-direction:row;justify-content:space-around;z-index:6;background:#000000f5;backdrop-filter:blur(12px);border:0;border-top:1px solid var(--b);padding:6px}
+#rail a{flex:1}.nx{display:none}}
+
+html{scroll-behavior:auto}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}35%{transform:scale(1.4)}100%{transform:scale(1)}}
+#app>*{animation:fade .3s ease both}
+.card{animation:up .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 50ms)}
+.hero,.chan,.watch .player,.fbox,.box{animation:up .5s cubic-bezier(.2,.7,.2,1) both}
+.fbox{animation-delay:.05s}
+.overlay{animation:fade .2s ease both}
+.overlay>div{animation:up .3s cubic-bezier(.2,.7,.2,1) both}
+button,.btn{transition:filter .15s,transform .15s,background .2s,border-color .2s}
+button:active,.btn:active{transform:scale(.97)}
+.th{transition:border-color .2s,transform .3s ease}
+.card:hover .th{transform:scale(1.015)}
+.chip{transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:#ffffff55;color:var(--t)}
+#rail a{transition:background .2s,color .2s}
+#rail a svg{transition:transform .2s}
+#rail a:hover svg{transform:scale(1.12)}
+input,select,textarea{transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--a);box-shadow:0 0 0 3px #3ea6ff24}
+.ib{transition:color .2s,border-color .2s,background .2s,transform .15s}
+.ib:hover{background:var(--s2)}
+.ib.pop svg{animation:pop .4s ease}
+.meter i{transition:background .25s}
+#toast{display:block;opacity:0;pointer-events:none;transform:translate(-50%,16px);transition:opacity .25s,transform .25s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.flinks{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:0 0 12px}
+.flinks a{color:var(--t);font-weight:600}
+.flinks a:hover{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+.ptitle{font-size:clamp(26px,3.4vw,34px);font-weight:800}
+.studio-topbar{display:flex;justify-content:flex-end;align-items:center;margin-bottom:8px}
+.studio-menu{position:relative}
+.studio-menu>button{width:44px;height:44px;padding:0;border-radius:50%;background:transparent;color:var(--t)}
+.studio-menu-pop{position:absolute;z-index:8;top:calc(100% + 8px);right:0;width:min(280px,calc(100vw - 28px));padding:8px 0;background:#151515;border:1px solid #333;border-radius:12px;box-shadow:0 16px 40px #000b}
+.studio-menu-pop[hidden]{display:none}
+.studio-menu-pop a,.studio-menu-pop button{display:flex;width:100%;min-height:54px;align-items:center;gap:14px;justify-content:flex-start;padding:12px 18px;border-radius:0;background:transparent;color:var(--t);font-size:15px;text-align:left}
+.studio-menu-pop a:hover,.studio-menu-pop button:hover{background:#242424}
+.studio-menu-pop .menu-icon{width:24px;height:24px;display:grid;place-items:center;flex:none;color:var(--a)}
+.studio-menu-pop .menu-icon svg{width:20px;height:20px}
+.studio-menu-pop .menu-divider{height:1px;background:#333;margin:7px 16px}
+.studio-menu-pop #studio-logout{color:#f2f2f2}
+.creator-cover{display:block;width:100%;height:clamp(76px,12vw,112px);padding:0;border:0;border-radius:0;position:relative;overflow:hidden;text-align:left;background:linear-gradient(115deg,#12356a 0%,#15579a 50%,#1686b9 100%);background-size:cover;background-position:center}
+.creator-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,#0f0f0f33 68%,var(--bg) 100%);pointer-events:none}
+.cover-hint{position:absolute;z-index:1;right:10px;bottom:8px;color:#ffffffd9;font-size:12px}
+.cover-file,.avatar-file{display:none}
+.creator-head{display:flex;align-items:center;flex-direction:row-reverse;justify-content:flex-end;gap:18px;margin:18px 8px 12px;position:relative}
+.creator-avatar-button{position:relative;width:108px;height:108px;flex:none;padding:0;border:0;border-radius:50%;background:transparent}
+.creator-avatar-button .creator-avatar{width:100%;height:100%;border:3px solid var(--bg);font-size:34px;box-shadow:0 4px 20px #0008;background:linear-gradient(135deg,#3182ce,#155eab);background-size:cover;background-position:center}
+.avatar-hint{position:absolute;right:0;bottom:1px;width:32px;height:32px;display:grid;place-items:center;border:2px solid var(--bg);border-radius:50%;background:var(--a);color:#fff}
+.creator-identity{flex:1 1 260px;min-width:0}
+.creator-identity h1{font-size:clamp(25px,4vw,34px);overflow-wrap:anywhere}
+.creator-identity p{margin:4px 0 0}
+.profile-editor{display:none;position:fixed;inset:0;z-index:100;background:#000c;place-items:center;padding:18px}
+.profile-editor.open{display:grid}
+.profile-editor-panel{width:min(100%,440px);padding:22px;background:var(--bg);border:0;border-radius:4px;box-shadow:0 20px 60px #000b}
+.profile-editor-panel h2{margin-bottom:16px}
+.creator-stats{display:flex;justify-content:center;gap:clamp(24px,8vw,84px);padding:8px 0 18px;text-align:center}
+.creator-stat strong{display:block;font:700 19px var(--d);color:var(--a)}
+.creator-stat span{display:block;color:var(--m);font-size:12px}
+.studio-stories{display:flex;justify-content:center;gap:16px;min-height:94px;padding:10px 0 18px}
+.story-item{width:68px;display:grid;justify-items:center;align-content:start;gap:6px;padding:0;background:none;color:var(--m);font-size:11px}
+.story-circle{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;border:2px solid #ffffff55;background-position:center;background-size:cover;color:#fff}
+.story-add .story-circle{border:1px dashed #ffffff70;background:transparent;color:var(--a)}
+.story-add .story-circle svg{width:22px;height:22px}
+.story-viewer{position:fixed;inset:0;z-index:110;display:grid;place-items:center;background:#000e;padding:24px}
+.story-viewer[hidden]{display:none}
+.story-viewer img{max-height:84vh;max-width:min(92vw,480px);object-fit:contain}
+.story-viewer button{position:absolute;top:16px;right:16px;background:transparent}
+.creator-tabs{display:flex;justify-content:center;gap:clamp(30px,9vw,96px);border-bottom:1px solid var(--b);margin:0 0 14px}
+.creator-tabs a{padding:12px 6px;color:var(--m);border-bottom:2px solid transparent}
+.creator-tabs a.active{color:var(--a);border-color:var(--a)}
+.creator-videos{text-align:center;min-height:170px;padding:28px 12px 48px}
+.creator-videos svg{color:var(--a);margin-bottom:8px}
+.creator-video-head{position:relative;display:grid;justify-items:center;gap:12px;padding:8px 0 20px}
+.creator-video-head>div{display:grid;justify-items:center}
+.creator-video-head svg{margin-bottom:8px}
+.video-upload{position:static;transform:none;justify-self:center;display:inline-flex;min-height:42px;margin-top:2px;padding:9px 16px;background:transparent;color:var(--a);border:1px solid #3ea6ff80}
+.video-upload svg{width:18px;height:18px;margin:0}
+.video-upload-status{min-height:1.4em;margin:0 0 16px;color:var(--m);font-size:12px}
+.video-file{display:none}
+.profile-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;margin-top:14px}
+.profile-field{min-width:0}
+.profile-field.email{grid-column:1/-1}
+.profile-field small{display:block;color:var(--m);font-size:12px;margin-bottom:4px}
+.profile-field strong{display:block;min-width:0;color:var(--t);font:500 15px/1.4 var(--f);overflow-wrap:anywhere;word-break:break-word}
+.studio-balance{display:flex;justify-content:center;align-items:center;gap:24px;padding:18px 4px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);text-align:left}
+.studio-balance strong{display:block;color:var(--a);font-size:22px}
+.studio-balance-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.studio-balance-actions button{background:transparent;color:var(--a);border:1px solid #3ea6ff80}
+.studio-balance-actions button:disabled{opacity:.55;cursor:not-allowed}
+.studio-balance button:disabled,.studio-menu-pop button:disabled{opacity:.45;cursor:not-allowed}
+.balance-note{font-size:12px;color:var(--m)}
+@media(max-width:480px){
+.studio-topbar{margin-bottom:4px}
+.creator-cover{height:74px}
+.creator-head{gap:12px;margin:15px 2px 10px}
+.creator-avatar-button{width:82px;height:82px}
+.creator-avatar{font-size:26px}
+.creator-identity{flex-basis:calc(100% - 94px);padding:0}
+.creator-identity h1{font-size:25px}
+.creator-video-head{gap:10px;padding:4px 0 18px}
+.video-upload{justify-self:center}
+.profile-details{grid-template-columns:minmax(0,1fr);gap:14px}
+.profile-field.email{grid-column:auto}
+.creator-stats{gap:32px;padding:6px 0 12px}
+.creator-stat strong{font-size:18px}
+.studio-stories{justify-content:flex-start;padding-left:4px}
+.studio-balance{gap:14px;padding:14px 2px}
+.studio-balance-actions{display:grid;justify-items:center;gap:4px}
+.studio-balance-actions button{padding:8px 12px}
+}
+.cstrip{display:flex;gap:18px;overflow-x:auto;padding:10px 2px 8px;scrollbar-width:none}
+.cstrip::-webkit-scrollbar{display:none}
+.cs{display:grid;justify-items:center;gap:8px;width:86px;flex:none;font-size:13px;text-align:center}
+.cs .av{width:64px;height:64px;font-size:20px;transition:transform .2s}
+.cs:hover .av{transform:scale(1.07)}
+.cs span{max-width:86px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--m)}
+.cs:hover span{color:var(--t)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:14px}
+.cc{display:grid;justify-items:center;gap:6px;text-align:center;padding:22px 14px;background:var(--s);border:1px solid var(--b);border-radius:var(--r);transition:border-color .2s}
+.cc:hover{border-color:#ffffff40}
+.cc .av{width:72px;height:72px;font-size:24px}
+.cc b{font-family:var(--d)}
+.cc small{color:var(--m)}
+.cc .fol{margin-top:6px}
+.tabs .n{margin-left:6px;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--s2);color:var(--m)}
+@keyframes out{to{opacity:0;transform:scale(.94)}}
+.card.out{animation:out .3s ease forwards}
+.empty svg{color:var(--m);margin-bottom:6px}
+.empty .btn{margin-top:14px}
+</style>
+</head>
+<body>
+<div id="gate" class="overlay"><div>
+  <h1 class="logo" style="justify-content:center"><svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M13 1.5a11.5 11.5 0 0 1 0 23z" fill="#3ea6ff"/></svg>Noir</h1>
+  <p>This website contains adult material and is intended for people aged 18 or over.</p>
+  <p class="muted">By entering you confirm you are of legal age where you live and agree to our terms.</p>
+  <button id="enter">I am 18 or older. Enter</button>
+  <a class="btn ghost" href="https://www.google.com">Leave</a>
+</div></div>
+
+<header>
+  <a class="logo" href="#/"><svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M13 1.5a11.5 11.5 0 0 1 0 23z" fill="#3ea6ff"/></svg>Noir</a>
+  <form id="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input name="q" type="search" placeholder="Search videos" aria-label="Search videos"></form>
+  <nav id="nav"></nav>
+</header>
+<div class="shell"><aside id="rail" aria-label="Main"></aside><div><main id="app"></main>
+<footer><p class="flinks"><a href="#/">Home</a><a href="#/login">Log in</a><a href="#/register">Join</a><a href="#/register?as=creator">Become a creator</a></p>All performers are verified adults.</footer></div></div>
+<div id="toast" role="status"></div>
+
+<script>
+/* Deep links: /login, /signup, /creator (with a rewrite to index.html), or a start route set by the page itself */
+(() => {
+  const seg = location.pathname.split('/').pop().replace(/\.html$/, '').toLowerCase();
+  const map = { login: '#/login', signin: '#/login', signup: '#/register', register: '#/register', join: '#/register', creator: '#/register?as=creator' };
+  const start = document.querySelector('meta[name=start]')?.content || map[seg];
+  if (!location.hash && start) location.hash = start;
+})();
+const HOSTED_PREVIEW = location.protocol !== 'file:' && !['localhost', '127.0.0.1'].includes(location.hostname) && !ls('api');
+const API = ls('api') || (HOSTED_PREVIEW ? '' : 'http://localhost:4000');
+const CUR = ['USD','EUR','GBP','NGN'];
+const $ = s => document.querySelector(s), app = $('#app');
+const S = { token: ls('token'), user: JSON.parse(ls('user') || 'null') };
+let CATS;
+let studioMenuOutsideClick;
+let studioStories = [];
+let studioVideoPreviewName = '';
+
+function ls(k, v) { try { return v === undefined ? localStorage.getItem(k) : v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch { return null; } }
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const go = h => location.hash = h;
+const normalizeCurrency = value => typeof value === 'string' && CUR.includes(value.toUpperCase()) ? value.toUpperCase() : 'USD';
+const displayCurrency = () => normalizeCurrency(S.user?.currency || ls('preferredCurrency') || 'USD');
+const setDisplayCurrency = value => {
+  const currency = normalizeCurrency(value);
+  ls('preferredCurrency', currency);
+  return currency;
+};
+const money = (n, c = displayCurrency()) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: normalizeCurrency(c) }).format(Number(n || 0) / 100); } catch { return (Number(n || 0) / 100).toFixed(2) + ' ' + normalizeCurrency(c); } };
+const dur = s => s ? Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0') : '';
+const opts = (list, sel) => list.map(c => `<option ${c === sel ? 'selected' : ''}>${c}</option>`).join('');
+const fld = (l, i) => `<label>${l}${i}</label>`;
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 3200); }
+
+async function api(p, o = {}) {
+  if (HOSTED_PREVIEW) throw new TypeError('Hosted preview mode');
+  const h = {}; if (S.token) h.Authorization = 'Bearer ' + S.token;
+  let body = o.body; if (body) { h['Content-Type'] = 'application/json'; body = JSON.stringify(body); }
+  const r = await fetch(API + p, { method: o.method || 'GET', headers: h, body });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(d.error || 'Request failed'), { status: r.status, data: d });
+  return d;
+}
+
+/* ---------- age gate, nav, search ---------- */
+if (ls('age18') === '1') $('#gate').remove();
+else $('#enter').onclick = () => { ls('age18', '1'); $('#gate').remove(); };
+$('#search').onsubmit = e => { e.preventDefault(); go('#/?q=' + encodeURIComponent(e.target.q.value)); };
+const ic = d => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round">${d}</svg>`;
+const I = {
+  home: ic('<path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'),
+  fol: ic('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M17 5a3.5 3.5 0 0 1 0 7M21.5 20c0-2.8-1.7-4.8-4-5.6"/>'),
+  save: ic('<path d="M6 3h12v18l-6-4-6 4z"/>'),
+  you: ic('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.2-2.2 3.2-3.2 5.5-3.2s4.3 1 5.5 3.2"/>'),
+  heart: ic('<path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12C19 16.6 12 21 12 21z"/>'),
+  next: ic('<path d="m9 6 6 6-6 6"/>'), prev: ic('<path d="m15 6-6 6 6 6"/>'),
+};
+function nav() {
+  const u = S.user, h = location.hash || '#/';
+  $('#search').hidden = h.startsWith('#/studio');
+  const accountHref = !u ? '#/login' : u.role === 'creator' ? '#/studio' : '#/profile';
+  const accountLabel = !u ? 'You' : u.role === 'creator' ? 'Studio' : 'You';
+  const items = [['#/', 'Home', I.home], ['#/following', 'Following', I.fol], ['#/saved', 'Saved', I.save], [accountHref, accountLabel, I.you]];
+  $('#rail').innerHTML = items.map(([href, l, i]) => `<a href="${href}" class="${(href === '#/' ? (h === '#/' || h.startsWith('#/?') || h.startsWith('#/v/')) : h.startsWith(href)) ? 'on' : ''}">${i}<span>${l}</span></a>`).join('');
+  $('#nav').innerHTML = u && h.startsWith('#/studio') ? '' : u
+    ? `${['admin', 'moderator'].includes(u.role) ? '<a class="btn ghost sm" href="#/admin">Admin</a>' : ''}<a class="av" style="--h:210" href="#/profile" title="${esc(u.username)}" aria-label="Your profile">${ini(u.username)}</a><button class="ghost sm" id="out">Log out</button>`
+    : '<a class="btn ghost sm" href="#/login">Log in</a><a class="btn sm" href="#/register">Join</a>';
+  if (u && $('#out')) $('#out').onclick = () => { ls('token', null); ls('user', null); S.token = S.user = null; nav(); go('#/'); };
+}
+
+const profileSummary = (heading = 'Account profile') => `<div class="box"><div class="row"><div><h2>${heading}</h2><p class="muted">${esc(S.user?.username || 'Account')} · ${esc(S.user?.role || 'fan')}</p></div><span class="tag">${displayCurrency()}</span></div><p class="muted" style="margin-bottom:0">Your account and dashboard currency is ${displayCurrency()}.</p></div>`;
+
+/* ---------- router ---------- */
+async function route() {
+  const [path, qs = ''] = location.hash.slice(1).split('?'), p = path.split('/').filter(Boolean);
+  scrollTo({ top: 0, behavior: 'instant' });
+  try {
+    if (!p.length) await home(new URLSearchParams(qs));
+    else if (p[0] === 'v') await watch(p[1]);
+    else if (p[0] === 'login') authPage('login');
+    else if (p[0] === 'register') authPage('register');
+    else if (p[0] === 'welcome') welcome(new URLSearchParams(qs));
+    else if (p[0] === 'c') await channel(p[1], new URLSearchParams(qs));
+    else if (p[0] === 'following') await followingPage();
+    else if (p[0] === 'saved') await savedPage(new URLSearchParams(qs));
+    else if (p[0] === 'studio') await studio();
+    else if (p[0] === 'profile') await profilePage();
+    else if (p[0] === 'admin') await admin();
+    else app.innerHTML = '<div class="wrap"><h1>Page not found</h1></div>';
+  } catch (e) {
+    if (e.status === 401) { ls('token', null); S.token = S.user = null; nav(); return go('#/login'); }
+    app.innerHTML = `<div class="wrap"><div class="box">${esc(e.message)}</div></div>`;
+  }
+}
+addEventListener('hashchange', () => { nav(); route(); });
+addEventListener('wheel', event => {
+  if (event.ctrlKey || Math.abs(event.deltaY) < Math.abs(event.deltaX) || event.target.closest('input, select, textarea, [contenteditable="true"]')) return;
+  const nested = event.target.closest('[data-scroll-y]');
+  if (nested && nested.scrollHeight > nested.clientHeight) {
+    const canScroll = event.deltaY < 0 ? nested.scrollTop > 0 : nested.scrollTop + nested.clientHeight < nested.scrollHeight;
+    if (canScroll) return;
+  }
+  const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? innerHeight : 1;
+  event.preventDefault();
+  scrollBy(0, event.deltaY * unit * 1.45);
+}, { passive: false });
+
+async function profilePage() {
+  if (!S.user) return go('#/login');
+  let user = S.user;
+  if (!user.demo) {
+    user = await api('/auth/me');
+    S.user = { ...S.user, ...user, currency: normalizeCurrency(user.currency) };
+    user = S.user;
+    ls('user', JSON.stringify(user));
+    setDisplayCurrency(user.currency);
+  }
+  app.innerHTML = `<div class="wrap"><div class="row"><h1 class="ptitle">Your profile</h1>${user.role === 'creator' ? '<a class="btn ghost sm" href="#/studio">Creator studio</a>' : ''}</div>
+    ${profileSummary()}
+    <section class="box"><h2>Account details</h2><div class="profile-details"><div class="profile-field"><small>Username</small><strong>${esc(user.username || 'Not set')}</strong></div><div class="profile-field"><small>Account type</small><strong>${esc(user.role || 'fan')}</strong></div><div class="profile-field email"><small>Email</small><strong>${esc(user.email || 'Not provided')}</strong></div></div></section>
+    <section class="box"><h2>Dashboard currency</h2><p class="muted">Choose the currency used for your profile and account dashboard.</p><form class="f" data-f="profileCurrency">${fld('Preferred currency', `<select name="currency">${opts(CUR, displayCurrency())}</select>`)}<p class="err" role="alert"></p><button class="full">Save currency</button></form></section>
+  </div>`;
+}
+
+/* ---------- browse ---------- */
+const HUES = [350, 18, 38, 155, 190, 212, 250, 275, 320];
+const hue = s => HUES[(Math.imul([...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7), 2654435761) >>> 0) % HUES.length];
+const ini = n => String(n || '?').split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+const compact = n => new Intl.NumberFormat(undefined, { notation: 'compact' }).format(n || 0);
+const ago = d => { if (!d) return ''; const m = Math.max(1, Math.floor((Date.now() - new Date(d)) / 6e4)); if (m < 60) return m + 'm ago'; const h = Math.floor(m / 60); if (h < 24) return h + 'h ago'; const x = Math.floor(h / 24); return x < 30 ? x + 'd ago' : x < 365 ? Math.floor(x / 30) + 'mo ago' : Math.floor(x / 365) + 'y ago'; };
+const LOCK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const PLAY = '<span class="pl"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></span>';
+const VERIFIED = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 2 3.1-.2 1 3 2.7 1.6-.9 3 .9 3-2.7 1.6-1 3-3.1-.2L12 22l-2.4-2-3.1.2-1-3L2.8 15.6l.9-3-.9-3 2.7-1.6 1-3 3.1.2z"/><path d="m8.5 12.3 2.4 2.4 4.6-4.8" fill="none" stroke="#000000" stroke-width="2"/></svg>';
+
+/* Likes, saves and follows are kept in this browser for now (no backend endpoints yet) */
+const ST = Object.assign({ l: [], b: [], f: [] }, JSON.parse(ls('st') || '{}'));
+const V = {};
+const has = (k, id) => ST[k].includes(id);
+const isDemo = id => /^(demo|c-)/.test(String(id));
+function flip(k, id) { const i = ST[k].indexOf(id); i < 0 ? ST[k].push(id) : ST[k].splice(i, 1); ls('st', JSON.stringify(ST)); }
+function sync() {
+  document.querySelectorAll('[data-t]').forEach(b => {
+    const on = has(b.dataset.t, b.dataset.id); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on);
+    if (b.dataset.t === 'f') b.querySelector('span').textContent = on ? 'Following' : 'Follow';
+  });
+}
+const tbtn = (t, id, icon, label) => `<button class="ib" data-t="${t}" data-id="${id}" aria-label="${label}" title="${label}">${icon}</button>`;
+const fbtn = (c, big) => `<button class="fol ${big ? 'big' : ''}" data-t="f" data-id="${c}"><span>Follow</span></button>`;
+
+/* Sample data so the layout can be previewed before the backend is running */
+const DEMO_CATS = ['Lifestyle', 'Music', 'Fitness', 'Travel', 'Cooking', 'Art'].map((n, i) => ({ id: i + 1, name: n, slug: n.toLowerCase() }));
+const DEMO = [
+  ['Golden Hour Sessions', 'Amara Cole', 'subscribers', 'lifestyle', 1260, 48200, null, 'A calm, unhurried walk through my favorite light of the day, plus the playlist I edit to.'],
+  ['Studio Diaries: Episode 4', 'Luca Ferri', 'free', 'music', 742, 120400, null, 'Writing a hook from scratch in one afternoon, mistakes and all.'],
+  ['Rooftop Sunset Mix', 'Nia Okafor', 'pay_per_view', 'music', 2190, 9300, 999, 'A 36-minute live mix recorded at golden hour. Pay once and rewatch whenever you like.'],
+  ['Morning Mobility Flow', 'Jade Winters', 'free', 'fitness', 930, 86100, null, 'Fifteen gentle minutes to loosen up before your day starts. No equipment needed.'],
+  ['Lagos to Lisbon, a travel film', 'Tunde Bello', 'subscribers', 'travel', 1840, 31700, null, 'Two cities, one long layover, and the food that connected them.'],
+  ['Sunday Sauce, Start to Finish', 'Marco Reyes', 'pay_per_view', 'cooking', 1500, 12800, 499, 'The full recipe, the timing, and the mistakes to avoid.'],
+  ['Watercolor for Beginners', 'Ines Duarte', 'free', 'art', 1210, 64500, null, 'Three washes, two brushes, and a simple sky you can paint today.'],
+  ['Behind the Scenes: Summer Shoot', 'Amara Cole', 'subscribers', 'lifestyle', 860, 22400, null, 'Everything that happened off camera, including the outtakes.'],
+  ['Twenty-Minute HIIT', 'Jade Winters', 'subscribers', 'fitness', 1200, 40300, null, 'A tight, scalable circuit with form notes for every move.'],
+  ['Night Market Food Tour', 'Tunde Bello', 'free', 'travel', 1630, 97200, null, 'Eleven stalls, one evening, and the dish worth queuing for.'],
+  ['Live Acoustic Set (Full Show)', 'Nia Okafor', 'pay_per_view', 'music', 3300, 15100, 1499, 'The full show with the stories between songs, recorded in one take.'],
+  ['Ceramics Studio Vlog', 'Ines Duarte', 'subscribers', 'art', 980, 18600, null, 'From wedging clay to the first firing, a week in the studio.'],
+].map(([title, creator_name, access, cat, duration_sec, view_count, price, description], i) => ({
+  id: 'demo-' + (i + 1), title, creator_name, creator_id: 'c-' + creator_name.toLowerCase().replace(/\s+/g, '-'), access, cat, duration_sec, view_count, price, description,
+  currency: 'USD', thumbnail_url: null, subscription_price: 1299, base_currency: 'USD', published_at: new Date(Date.now() - (i * 3 + 2) * 864e5).toISOString() }));
+
+function badge(v) {
+  if (v.access === 'free') return '<span class="bd b-free">Free</span>';
+  if (v.access === 'pay_per_view') return `<span class="bd b-ppv">${LOCK}${money(v.price, v.currency)}</span>`;
+  return `<span class="bd b-sub">${LOCK}Members</span>`;
+}
+const thumb = v => `style="--h:${hue(v.id)};${v.thumbnail_url ? `background-image:url('${API}${esc(v.thumbnail_url)}')` : ''}"`;
+const acts = v => v.access === 'free'
+  ? `<div class="acts">${tbtn('l', v.id, I.heart, 'Like')}${tbtn('b', v.id, I.save, 'Save')}${fbtn(v.creator_id)}</div>`
+  : `<div class="acts"><button class="sm buy" ${v.access === 'pay_per_view' ? `data-buy="${v.id}"` : `data-sub="${v.id}"`}>${v.access === 'pay_per_view' ? 'Unlock ' + money(v.price, v.currency) : 'Subscribe' + (v.subscription_price ? ' ' + money(v.subscription_price, v.base_currency) + '/mo' : '')}</button>${tbtn('b', v.id, I.save, 'Save')}</div>`;
+function card(v) {
+  V[v.id] = v;
+  return `<article class="card"><a class="th" href="#/v/${v.id}" ${thumb(v)} aria-label="${esc(v.title)}">${badge(v)}${v.duration_sec ? `<span class="du">${dur(v.duration_sec)}</span>` : ''}${PLAY}
+    <div class="more"><p>${esc(v.description || 'No description yet.')}</p><div class="tags">${v.cat ? `<span>${esc(v.cat)}</span>` : ''}<span>${dur(v.duration_sec) || 'New'}</span><span>${compact(v.view_count)} views</span></div></div></a>
+    <div class="meta"><a class="av" href="#/c/${v.creator_id}" style="--h:${hue(v.creator_id)}" aria-label="${esc(v.creator_name)}">${ini(v.creator_name)}</a>
+    <div><h3><a href="#/v/${v.id}">${esc(v.title)}</a></h3><p><a href="#/c/${v.creator_id}">${esc(v.creator_name)}</a></p><p class="stat"><span>${compact(v.view_count)} views</span><span>${ago(v.published_at)}</span></p></div></div>${acts(v)}</article>`;
+}
+const mini = v => `<a class="mini" href="#/v/${v.id}"><div class="th" ${thumb(v)}>${badge(v)}</div><div><h4>${esc(v.title)}</h4><p>${esc(v.creator_name)}</p><p>${compact(v.view_count)} views</p></div></a>`;
+const row = (title, list) => list.length ? `<section><h2 class="sec">${title}</h2><div class="crow"><div class="track">${list.map(card).join('')}</div>
+  <button class="nx pv" data-dir="-1" aria-label="Scroll left">${I.prev}</button><button class="nx" data-dir="1" aria-label="Scroll right">${I.next}</button></div></section>` : '';
+const empty = (h, t, btn = '') => `<div class="empty"><h2>${h}</h2><p>${t}</p>${btn}</div>`;
+
+async function home(sp) {
+  let videos, demo = false;
+  try { CATS = CATS || await api('/categories'); ({ videos } = await api('/videos?' + sp)); }
+  catch (e) {
+    if (e.status) throw e;
+    demo = true; CATS = DEMO_CATS; const q = (sp.get('q') || '').toLowerCase();
+    videos = DEMO.filter(v => (!q || (v.title + v.creator_name).toLowerCase().includes(q)) && (!sp.get('category') || v.cat === sp.get('category')) && (!sp.get('creator') || v.creator_id === sp.get('creator')));
+    if (sp.get('sort') === 'popular') videos.sort((a, b) => b.view_count - a.view_count);
+  }
+  const link = (k, v) => { const n = new URLSearchParams(sp); v ? n.set(k, v) : n.delete(k); return '#/?' + n; };
+  const plain = !sp.toString(), f = plain && videos[0], by = a => videos.filter(v => v.access === a);
+  app.innerHTML = `<div class="wrap">${demo ? `<div class="demo">Preview mode: these are sample videos. Start the backend at ${esc(API)} to see real content.</div>` : ''}
+    ${f ? `<section class="hero" style="--h:${hue(f.id)}"><div class="hc"><h1>${esc(f.title)}</h1><p>${esc(f.creator_name)} · ${compact(f.view_count)} views</p>
+      <div class="cta"><a class="btn" href="#/v/${f.id}">${f.access === 'free' ? 'Watch now' : 'See how to watch'}</a>${S.user ? '' : '<a class="btn ghost" href="#/register">Create free account</a>'}</div></div></section>` : ''}
+    <div class="row" style="margin-top:22px"><div class="chips"><a class="chip ${sp.get('category') ? '' : 'on'}" href="${link('category', '')}">All</a>
+      ${CATS.map(c => `<a class="chip ${sp.get('category') === c.slug ? 'on' : ''}" href="${link('category', c.slug)}">${esc(c.name)}</a>`).join('')}</div>
+      <select id="sort" style="width:auto" aria-label="Sort"><option value="new">Newest</option><option value="popular">Most viewed</option></select></div>
+    ${plain ? row('Free to watch', by('free')) + row('Members only', by('subscribers')) + row('Pay per video', by('pay_per_view')) || empty('No videos yet', 'Check back soon.')
+      : `<h2 class="sec">${sp.get('q') ? `Results for “${esc(sp.get('q'))}”` : 'Videos'}</h2>${videos.length ? `<div class="grid">${videos.map(card).join('')}</div>` : empty('Nothing found', 'Try a different search or category.')}`}</div>`;
+  $('#sort').value = sp.get('sort') || 'new';
+  $('#sort').onchange = e => go(link('sort', e.target.value));
+}
+
+async function channel(id, sp) {
+  let c, vids;
+  if (isDemo(id)) {
+    vids = DEMO.filter(v => v.creator_id === id); if (!vids.length) throw new Error('Creator not found');
+    c = { display_name: vids[0].creator_name, username: vids[0].creator_name.toLowerCase().replace(/\s+/g, ''), followers: 20000 + hue(id) * 977, video_count: vids.length,
+      bio: 'Welcome to my channel. New videos every week, with extras and behind-the-scenes for members.', subscription_price: 1299, base_currency: 'USD' };
+  } else { c = await api('/creators/' + id); vids = (await api('/videos?creator=' + id)).videos; }
+  V['ch:' + id] = { id: isDemo(id) ? vids[0].id : 'creator', creator_id: id };
+  const tab = sp.get('tab') || 'home', by = a => vids.filter(v => v.access === a);
+  const body = tab === 'home' ? row('Free to watch', by('free')) + row('Members only', by('subscribers')) + row('Pay per video', by('pay_per_view'))
+    : (l => l.length ? `<div class="grid">${l.map(card).join('')}</div>` : '')(tab === 'free' ? by('free') : tab === 'members' ? by('subscribers') : vids);
+  app.innerHTML = `<div class="wrap"><div class="bn" style="--h:${hue(id)}"></div>
+    <div class="chan"><span class="av big" style="--h:${hue(id)}">${ini(c.display_name)}</span><div>
+      <h1>${esc(c.display_name)} ${VERIFIED}</h1><p class="muted" style="margin:4px 0">@${esc(c.username)} · ${compact(c.followers)} followers · ${c.video_count} videos</p>
+      <p class="cbio">${esc(c.bio || 'No bio yet.')}</p>
+      <div class="abar">${fbtn(id, true)}${c.subscription_price ? `<button data-subc="ch:${id}">Subscribe ${money(c.subscription_price, c.base_currency)}/month</button>` : ''}</div></div></div>
+    <nav class="tabs">${[['home', 'Home'], ['videos', 'Videos'], ['free', 'Free'], ['members', 'Members']].map(([t, l]) => `<a class="${tab === t ? 'on' : ''}" href="#/c/${id}?tab=${t}">${l}</a>`).join('')}</nav>
+    ${body || empty('No videos here yet', 'Check another tab.')}</div>`;
+}
+
+const persist = () => ls('st', JSON.stringify(ST));
+const allVideos = async () => { try { return (await api('/videos')).videos; } catch (e) { if (e.status) throw e; return DEMO; } };
+async function creatorInfo(id) {
+  if (isDemo(id)) { const v = DEMO.find(x => x.creator_id === id); return v && { id, name: v.creator_name }; }
+  try { const c = await api('/creators/' + id); return { id, name: c.display_name }; } catch { return null; }
+}
+async function videosFor(ids) {
+  const out = DEMO.filter(v => ids.includes(v.creator_id));
+  const rs = await Promise.all(ids.filter(i => !isDemo(i)).slice(0, 12).map(id => api('/videos?creator=' + id).then(x => x.videos).catch(() => [])));
+  return out.concat(rs.flat());
+}
+async function videosByIds(ids) {
+  const found = DEMO.filter(v => ids.includes(v.id));
+  (await Promise.all(ids.filter(i => !isDemo(i)).slice(0, 24).map(id => api('/videos/' + id).catch(() => null)))).forEach(v => v && found.push(v));
+  return ids.map(id => found.find(v => v.id === id)).filter(Boolean).reverse();   // newest first
+}
+const HEART_BIG = '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg>';
+const BOOK_BIG = '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>';
+const PEOPLE_BIG = '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M17 5a3.5 3.5 0 0 1 0 7M21.5 20c0-2.8-1.7-4.8-4-5.6"/></svg>';
+const emptyI = (icon, h, t, btn = '') => `<div class="empty">${icon}<h2>${h}</h2><p>${t}</p>${btn}</div>`;
+
+async function followingPage() {
+  const ids = [...ST.f].reverse();
+  const [infos, vids, all] = await Promise.all([Promise.all(ids.map(creatorInfo)), videosFor(ids), allVideos()]);
+  const creators = infos.filter(Boolean), feed = vids.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+  const sug = []; all.forEach(v => { if (!ST.f.includes(v.creator_id) && !sug.some(c => c.id === v.creator_id)) sug.push({ id: v.creator_id, name: v.creator_name }); });
+  app.innerHTML = `<div class="wrap"><div class="row"><h1 class="ptitle">Following</h1><span class="muted">${creators.length} ${creators.length === 1 ? 'creator' : 'creators'}</span></div>
+    ${creators.length ? `<div class="cstrip">${creators.map(c => `<a class="cs" href="#/c/${c.id}"><i class="av" style="--h:${hue(c.id)}">${ini(c.name)}</i><span>${esc(c.name)}</span></a>`).join('')}</div>
+      <h2 class="sec">Latest from your creators</h2>${feed.length ? `<div class="grid">${feed.map(card).join('')}</div>` : empty('No videos yet', 'Your creators have not posted anything yet.')}`
+    : emptyI(PEOPLE_BIG, 'You are not following anyone yet', 'Follow creators and their newest videos will show up here.')}
+    ${sug.length ? `<h2 class="sec">${creators.length ? 'Creators you might like' : 'Start with these creators'}</h2><div class="cgrid">${sug.slice(0, 8).map(c =>
+      `<div class="cc"><a class="av" href="#/c/${c.id}" style="--h:${hue(c.id)}" aria-label="${esc(c.name)}">${ini(c.name)}</a><b>${esc(c.name)}</b>${isDemo(c.id) ? `<small>${compact(20000 + hue(c.id) * 977)} followers</small>` : ''}${fbtn(c.id)}</div>`).join('')}</div>` : ''}</div>`;
+}
+
+async function savedPage(sp) {
+  const tab = sp.get('tab') === 'liked' ? 'liked' : 'saved', k = tab === 'liked' ? 'l' : 'b', f = sp.get('f') || 'all';
+  const vids = await videosByIds(ST[k]);
+  const ACC = { free: 'free', members: 'subscribers', ppv: 'pay_per_view' };
+  const list = f === 'all' ? vids : vids.filter(v => v.access === ACC[f]);
+  const url = (t, ff) => `#/saved?tab=${t}${ff && ff !== 'all' ? '&f=' + ff : ''}`;
+  app.innerHTML = `<div class="wrap"><div class="row"><h1 class="ptitle">Library</h1>${tab === 'saved' && vids.length ? '<button class="ghost sm" id="clear">Clear all</button>' : ''}</div>
+    <nav class="tabs"><a class="${tab === 'saved' ? 'on' : ''}" href="#/saved">Saved<span class="n">${ST.b.length}</span></a><a class="${tab === 'liked' ? 'on' : ''}" href="#/saved?tab=liked">Liked<span class="n">${ST.l.length}</span></a></nav>
+    ${vids.length ? `<div class="chips" style="margin-top:14px">${[['all', 'All'], ['free', 'Free'], ['members', 'Members only'], ['ppv', 'Pay per video']].map(([x, l]) => `<a class="chip ${f === x ? 'on' : ''}" href="${url(tab, x)}">${l}</a>`).join('')}</div>` : ''}
+    ${list.length ? `<div class="grid">${list.map(card).join('')}</div>`
+      : vids.length ? emptyI(BOOK_BIG, 'Nothing matches this filter', 'Try another filter above.')
+      : tab === 'saved' ? emptyI(BOOK_BIG, 'No saved videos yet', 'Tap the bookmark on any video to keep it here for later.', '<a class="btn" href="#/">Browse videos</a>')
+      : emptyI(HEART_BIG, 'No liked videos yet', 'Tap the heart on videos you enjoy and they will be listed here.', '<a class="btn" href="#/">Browse videos</a>')}</div>`;
+  if ($('#clear')) $('#clear').onclick = () => { if (confirm('Remove all saved videos?')) { ST.b = []; persist(); route(); } };
+}
+
+/* Keep Following / Library pages in step with button taps */
+function afterToggle(t) {
+  const k = t.dataset.t, h = location.hash;
+  if (h.startsWith('#/following') && k === 'f') return setTimeout(route, 350);
+  if (h.startsWith('#/saved') && k === (h.includes('tab=liked') ? 'l' : 'b') && !has(k, t.dataset.id)) {
+    const c = t.closest('.card'); if (!c) return;
+    c.classList.add('out');
+    setTimeout(() => {
+      c.remove(); const n = app.querySelector('.tabs a.on .n'); if (n) n.textContent = Math.max(0, +n.textContent - 1);
+      if (!app.querySelector('.card')) route();
+    }, 300);
+  }
+}
+
+/* ---------- watch + paywall ---------- */
+let hlsLoad;
+const loadHls = () => hlsLoad ||= new Promise((ok, no) => {
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js'; s.onload = ok; s.onerror = no; document.head.append(s);
+});
+async function play(url) {
+  const v = document.createElement('video');
+  v.controls = true; v.playsInline = true; v.setAttribute('controlsList', 'nodownload'); v.oncontextmenu = e => e.preventDefault();
+  $('#pl').replaceChildren(v);
+  if (v.canPlayType('application/vnd.apple.mpegurl')) v.src = url;
+  else { await loadHls(); const h = new Hls(); h.loadSource(url); h.attachMedia(v); }
+}
+async function watch(id) {
+  const demo = isDemo(id);
+  const v = demo ? DEMO.find(x => x.id === id) : await api('/videos/' + id);
+  if (!v) throw new Error('Video not found');
+  V[v.id] = v;
+  const pool = demo ? DEMO : (await api('/videos').catch(() => ({ videos: [] }))).videos;
+  app.innerHTML = `<div class="wrap watch"><div><div class="player" id="pl"></div><h1 class="vt">${esc(v.title)}</h1>
+    <div class="row"><a class="who" href="#/c/${v.creator_id}"><i class="av lg" style="--h:${hue(v.creator_id)}">${ini(v.creator_name)}</i>
+      <span><b>${esc(v.creator_name)}</b><small class="muted">${compact(v.view_count)} views ${ago(v.published_at)}</small></span></a>
+      <div class="abar">${tbtn('l', v.id, I.heart, 'Like')}${tbtn('b', v.id, I.save, 'Save')}${fbtn(v.creator_id)}
+      ${v.subscription_price && v.access !== 'free' ? `<button class="sm" data-sub="${v.id}">Subscribe ${money(v.subscription_price, v.base_currency)}/month</button>` : ''}</div></div>
+    <div class="box"><p style="margin:0">${esc(v.description) || 'No description yet.'}</p></div></div>
+    <aside><h3>Up next</h3>${pool.filter(x => x.id !== id).slice(0, 6).map(mini).join('')}</aside></div>`;
+  if (demo) return v.access === 'free' ? demoPlayer(v) : paywall(v);
+  try { play((await api(`/videos/${id}/play`)).url); }
+  catch (e) { if (e.status === 402) paywall(v); else throw e; }
+}
+const demoPlayer = v => $('#pl').innerHTML = `<div class="lockbg" style="--h:${hue(v.id)}"><div class="lock"><h2>Player preview</h2><p class="muted">Free videos stream here once the backend is connected.</p></div></div>`;
+
+async function checkout(v, kind) {
+  if (!S.user) return needLogin();
+  if (v.id.startsWith('demo')) return toast('Preview mode: connect the backend to enable payments');
+  try {
+    const body = kind === 'ppv' ? { kind, videoId: v.id } : { kind, creatorId: v.creator_id };
+    const p = await api('/payments/checkout', { method: 'POST', body });
+    if (p.checkoutUrl) return location.href = p.checkoutUrl;
+    const m = document.createElement('div'); m.className = 'overlay';
+    m.innerHTML = `<div class="box"><h2>Confirm purchase</h2><p>You will be charged <b>${money(p.chargedAmount, p.chargedCurrency)}</b>.</p>
+      <button id="sim">Dev: simulate successful payment</button> <button id="cx" class="ghost">Cancel</button></div>`;
+    document.body.append(m);
+    $('#cx').onclick = () => m.remove();
+    $('#sim').onclick = async () => { await api('/payments/dev/complete/' + p.paymentId, { method: 'POST' }); m.remove(); route(); };
+  } catch (e) { toast(e.message); }
+}
+function paywall(v) {
+  const ppv = v.access === 'pay_per_view', closed = !ppv && !v.subscription_price;
+  $('#pl').innerHTML = `<div class="lockbg" style="--h:${hue(v.id)}"><div class="lock">
+    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    <h2>${ppv ? 'Unlock this video' : 'For subscribers'}</h2>
+    <p class="muted">${ppv ? 'Pay once and watch it whenever you like.' : closed ? 'This creator has not opened subscriptions yet.' : `Get every subscriber video from ${esc(v.creator_name)}.`}</p>
+    ${closed ? '' : `<button id="buy">${ppv ? 'Unlock for ' + money(v.price, v.currency) : 'Subscribe for ' + money(v.subscription_price, v.base_currency) + '/month'}</button>`}</div></div>`;
+  if ($('#buy')) $('#buy').onclick = () => checkout(v, ppv ? 'ppv' : 'subscription');
+}
+
+/* ---------- auth ---------- */
+const CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>';
+function authPage(kind) {
+  const qs = new URLSearchParams(location.hash.split('?')[1] || ''), reg = kind === 'register', cr = reg && qs.get('as') === 'creator', ver = qs.get('verified');
+  const perks = !reg ? ['Your unlocked videos and subscriptions are waiting', 'Save favorites and follow your creators', 'Cancel a subscription any time']
+    : cr ? ['Set your own prices for subscriptions and single videos', 'Get paid in your currency, with clear earnings reports', 'Every creator is verified, so fans trust the platform']
+    : ['Watch free previews and free videos without paying', 'Unlock single videos or subscribe to the creators you follow', 'Pay in your own currency, with prices shown up front'];
+  app.innerHTML = `<div class="authwrap"><section class="authside ${cr ? 'cr' : ''}"><h2>${!reg ? 'Good to see you again.' : cr ? 'Set your price. Keep your audience.' : 'Free to browse. Pay only for what you unlock.'}</h2>
+    <ul class="perks">${perks.map(t => `<li>${CHECK}<span>${t}</span></li>`).join('')}</ul></section>
+    <section class="authmain"><div class="fbox" id="fbox">
+    ${ver === '1' ? '<p class="note">Email verified. You can log in now.</p>' : ver === '0' ? '<p class="err" style="margin-bottom:14px">That verification link has expired. Please register again.</p>' : ''}
+    ${reg ? `<div class="seg"><a class="${cr ? '' : 'on'}" href="#/register">I want to watch</a><a class="${cr ? 'on' : ''}" href="#/register?as=creator">I’m a creator</a></div>` : ''}
+    <h1>${!reg ? 'Log in' : cr ? 'Start earning' : 'Create your account'}</h1>
+    <p class="muted" style="margin:0 0 22px">${!reg ? 'Enter your details to continue.' : cr ? 'Create your account, then verify your ID to start posting.' : 'It takes less than a minute.'}</p>
+    <form class="f" data-f="${kind}">
+      ${cr ? '<input type="hidden" name="as" value="creator">' + fld('Creator name', '<input name="cname" required maxlength="40" placeholder="The name fans will see">') : ''}
+      ${fld('Email', '<input name="email" type="email" required autocomplete="email" placeholder="you@example.com">')}
+      ${reg ? fld('Username', '<input name="username" required minlength="3" maxlength="24" autocomplete="username" placeholder="Used to log in and comment">') : ''}
+      ${fld('Password', `<span class="pw"><input id="pw" name="password" type="password" required minlength="8" autocomplete="${reg ? 'new' : 'current'}-password"><button type="button" data-show>Show</button></span>`)}
+      ${reg ? `<div class="meter" id="meter" data-l="0"><i></i><i></i><i></i></div><small class="muted" id="mhint" style="margin-top:-8px">Use 8 or more characters.</small>
+        ${fld(cr ? 'Currency for your earnings' : 'Currency for prices', `<select name="currency">${opts(CUR, displayCurrency())}</select>`)}
+        <label class="chk"><input type="checkbox" name="age" required><span>I am 18 or older and agree to the Terms and Privacy Policy.</span></label>` : ''}
+      <p class="err" role="alert"></p>
+      <button class="full">${!reg ? 'Log in' : cr ? 'Create creator account' : 'Create account'}</button>
+    </form>
+    <p class="alt">${reg ? 'Already have an account? <a href="#/login">Log in</a>' : 'New to Noir? <a href="#/register">Create an account</a>'}</p>
+    </div></section></div>`;
+  $('[data-show]').onclick = e => { const i = $('#pw'), show = i.type === 'password'; i.type = show ? 'text' : 'password'; e.target.textContent = show ? 'Hide' : 'Show'; };
+  if (reg) $('#pw').oninput = e => {
+    const v = e.target.value; let l = v.length < 8 ? 0 : 1 + (/[a-z]/.test(v) && /[A-Z]/.test(v)) + (/\d|[^\w\s]/.test(v));
+    $('#meter').dataset.l = l; $('#mhint').textContent = ['Use 8 or more characters.', 'Okay. Add capitals or numbers to strengthen it.', 'Good.', 'Strong.'][l];
+  };
+}
+
+/* ---------- creator studio ---------- */
+function studioPreview() {
+  const creatorName = S.user?.display_name || S.user?.username || 'Your creator name';
+  const creatorBio = S.user?.creator_bio || 'Welcome to your channel.';
+  const plusIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  const videoIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>';
+  app.innerHTML = `<div class="wrap">
+    <div class="studio-topbar">
+      <div class="studio-menu"><button id="studio-menu-toggle" type="button" aria-label="Open creator menu" aria-haspopup="menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="studio-menu-pop" id="studio-menu" role="menu" hidden>
+          <button id="edit-profile" type="button" role="menuitem"><span class="menu-icon">${ic('<path d="m16 4 4 4M4 20l4-.8L19 8a2.1 2.1 0 0 0-3-3L5 16z"/>')}</span><span>Edit profile</span></button>
+          <a href="#/profile" role="menuitem"><span class="menu-icon">${ic('<circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-2 .9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-2-.9l-1.7.7-1.4-2.4 1.4-1.1a8 8 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 2-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 2 .9l1.7-.7 1.4 2.4-1.4 1.1a8 8 0 0 1 0 1.9z"/>')}</span><span>Settings</span></a>
+          <button id="balance-link" type="button" role="menuitem"><span class="menu-icon">${ic('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>')}</span><span>Balance</span></button>
+          <button id="withdraw-menu" type="button" role="menuitem" disabled title="Payouts are not connected yet"><span class="menu-icon">${ic('<path d="M7 7h11a3 3 0 0 1 3 3v8H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h11v4"/><path d="M17 13h4"/>')}</span><span>Withdraw</span></button>
+          <span class="menu-divider" role="separator"></span>
+          <button id="studio-logout" type="button" role="menuitem"><span class="menu-icon">${ic('<path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>')}</span><span>Log out</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="creator-cover" id="creator-cover" role="button" tabindex="0" aria-label="Change profile banner"><span class="cover-hint">Edit cover</span></div>
+    <input class="cover-file" id="creator-cover-file" type="file" accept="image/*">
+    <div class="creator-head">
+      <button class="creator-avatar-button" id="avatar-edit" type="button" aria-label="Change profile picture"><span class="av big creator-avatar" id="creator-avatar" style="--h:210">${ini(creatorName)}</span><span class="avatar-hint" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <input class="avatar-file" id="creator-photo" type="file" accept="image/*">
+      <div class="creator-identity"><h1 id="creator-name">${esc(creatorName)}</h1><p class="muted" id="creator-handle">@${esc(S.user?.username || 'creator')}</p><p class="muted" id="creator-bio">${esc(creatorBio)}</p></div>
+    </div>
+    <div class="creator-stats"><div class="creator-stat"><strong>0</strong><span>Following</span></div><div class="creator-stat"><strong>0</strong><span>Subscribers</span></div><div class="creator-stat"><strong>0</strong><span>Likes</span></div></div>
+    <section class="studio-stories" aria-label="Stories">
+      <button class="story-item story-add" id="add-story" type="button"><span class="story-circle">${plusIcon}</span><span>Add story</span></button>
+      ${studioStories.map((story, index) => `<button class="story-item" type="button" data-story="${index}"><span class="story-circle" style="background-image:url('${story}')"></span><span>Your story</span></button>`).join('')}
+    </section>
+    <input id="story-upload" class="cover-file" type="file" accept="image/*">
+    <nav class="creator-tabs" aria-label="Creator posts"><a class="active" href="#/studio">Videos</a><a href="#/saved?tab=liked">Liked</a><a href="#/saved">Saved</a></nav>
+    <section class="creator-videos"><div class="creator-video-head"><div>${videoIcon}<h2>Your videos</h2><p class="muted">Videos you publish will appear here.</p></div><button class="video-upload" id="video-upload-trigger" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Upload</span></button></div>
+      <input class="video-file" id="video-upload-file" type="file" accept="video/*"><p class="video-upload-status" id="video-upload-status">${studioVideoPreviewName ? `${esc(studioVideoPreviewName)} selected · preview only, not uploaded` : ''}</p>
+      <div class="creator-videos-empty"><p class="muted">Upload a video to start filling your channel.</p></div>
+      <div id="studio-balance" class="studio-balance"><div><span>Balance</span><strong>${money(0, displayCurrency())}</strong><small class="balance-note">Preview balance · payouts are not connected</small></div><div class="studio-balance-actions"><button id="withdraw-balance" type="button" disabled title="Payouts are not connected yet">Withdraw</button><small class="balance-note">Unavailable in preview</small></div></div>
+    </section>
+    <div class="story-viewer" id="story-viewer" role="dialog" aria-modal="true" aria-label="Story" hidden><button id="close-story" type="button" aria-label="Close story">Close</button><img id="story-image" alt="Your story"></div>
+    <div class="profile-editor" id="profile-editor" role="dialog" aria-modal="true" aria-labelledby="edit-profile-title">
+      <div class="profile-editor-panel"><div class="row"><h2 id="edit-profile-title">Edit profile</h2><button class="ghost sm" id="close-profile-editor" type="button" aria-label="Close">Close</button></div>
+        <form class="f" id="creator-profile-form">${fld('Display name', `<input name="displayName" maxlength="40" required value="${esc(creatorName)}">`)}${fld('Bio', `<textarea name="bio" maxlength="160" rows="3">${esc(creatorBio)}</textarea>`)}<button class="full">Save preview</button></form>
+      </div>
+    </div>
+  </div>`;
+  const avatarFile = $('#creator-photo'), coverFile = $('#creator-cover-file');
+  const openAvatarPicker = () => avatarFile.click();
+  $('#avatar-edit').onclick = openAvatarPicker;
+  $('#creator-cover').onclick = () => coverFile.click();
+  $('#creator-cover').onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); coverFile.click(); } };
+  const previewImage = (input, target, background = false) => {
+    input.onchange = event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      target.style.backgroundImage = `url("${url}")`;
+      if (!background) target.textContent = '';
+    };
+  };
+  previewImage(avatarFile, $('#creator-avatar'));
+  previewImage(coverFile, $('#creator-cover'), true);
+  const menuButton = $('#studio-menu-toggle'), menu = $('#studio-menu'), editor = $('#profile-editor');
+  menuButton.onclick = () => { const open = menu.hidden; menu.hidden = !open; menuButton.setAttribute('aria-expanded', String(open)); };
+  $('#edit-profile').onclick = () => { menu.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); editor.classList.add('open'); editor.querySelector('input').focus(); };
+  $('#balance-link').onclick = () => { menu.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); $('#studio-balance').scrollIntoView({ block: 'center', behavior: 'auto' }); };
+  $('#studio-logout').onclick = () => { ls('token', null); ls('user', null); S.token = S.user = null; nav(); go('#/'); };
+  $('#close-profile-editor').onclick = () => editor.classList.remove('open');
+  editor.onclick = event => { if (event.target === editor) editor.classList.remove('open'); };
+  $('#creator-profile-form').onsubmit = event => {
+    event.preventDefault();
+    const values = Object.fromEntries(new FormData(event.currentTarget));
+    S.user.display_name = values.displayName.trim();
+    S.user.creator_bio = values.bio.trim();
+    ls('user', JSON.stringify(S.user));
+    $('#creator-name').textContent = S.user.display_name;
+    $('#creator-bio').textContent = S.user.creator_bio || 'Welcome to your channel.';
+    if (!$('#creator-avatar').style.backgroundImage) $('#creator-avatar').textContent = ini(S.user.display_name);
+    editor.classList.remove('open');
+    toast('Profile preview updated');
+  };
+  $('#add-story').onclick = () => $('#story-upload').click();
+  $('#video-upload-trigger').onclick = () => $('#video-upload-file').click();
+  $('#video-upload-file').onchange = event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    studioVideoPreviewName = file.name;
+    studioPreview();
+  };
+  $('#story-upload').onchange = event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    studioStories.push(URL.createObjectURL(file));
+    studioPreview();
+  };
+  $('#story-viewer').onclick = event => { if (event.target.id === 'story-viewer' || event.target.id === 'close-story') $('#story-viewer').hidden = true; };
+  $('#app').querySelectorAll('[data-story]').forEach(button => button.onclick = () => {
+    $('#story-image').src = studioStories[Number(button.dataset.story)];
+    $('#story-viewer').hidden = false;
+  });
+  if (studioMenuOutsideClick) document.removeEventListener('click', studioMenuOutsideClick);
+  studioMenuOutsideClick = event => {
+    if (!event.target.closest('.studio-menu')) { menu.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); }
+  };
+  document.addEventListener('click', studioMenuOutsideClick);
+}
+
+async function studio() {
+  if (!S.user) return go('#/login');
+  if (S.user.role !== 'creator') return go('#/profile');
+  if (S.user.demo) return studioPreview();
+  const me = await api('/auth/me');
+  if (me.kyc_status !== 'approved') return studioPreview();
+  CATS = CATS || await api('/categories');
+  const mine = await api('/videos/mine');
+  app.innerHTML = `<div class="wrap"><h1>Creator studio</h1>${profileSummary('Creator dashboard')}
+    <div class="box"><h2>New video</h2><form class="f" data-f="newvideo">
+      ${fld('Title', '<input name="title" required>')}${fld('Description', '<textarea name="description" rows="3"></textarea>')}
+      ${fld('Who can watch', '<select name="access"><option value="subscribers">Subscribers</option><option value="pay_per_view">Pay per view</option><option value="free">Free preview</option></select>')}
+      ${fld('Price (pay per view only)', '<input name="price" type="number" min="0" step="0.01">')}
+      ${fld('Price currency', `<select name="currency">${opts(CUR, displayCurrency())}</select>`)}
+      ${fld('Categories', `<select name="cats" multiple size="3">${CATS.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select>`)}
+      <button>Create</button></form></div>
+    <h2>Your videos</h2>${mine.map(v => `<div class="box"><div class="row"><b>${esc(v.title)}</b><span class="tag">${esc(v.status)}</span></div>
+      <p class="muted">${esc(v.access)} · ${v.view_count} views${v.rejection_reason ? ' · ' + esc(v.rejection_reason) : ''}</p>
+      <details><summary>Upload &amp; performers</summary>
+        ${['uploading', 'rejected'].includes(v.status) ? `<form class="f" data-f="upload" data-vid="${v.id}" style="margin:12px 0">${fld('Video file', '<input name="file" type="file" accept="video/*" required>')}<button>Upload</button><span class="muted prog"></span></form>` : ''}
+        <form class="f" data-f="perf" data-vid="${v.id}" style="margin-top:12px"><b>Add a performer (everyone on screen)</b>
+          ${fld('Legal name', '<input name="name" required>')}${fld('Date of birth', '<input name="dob" type="date" required>')}
+          ${fld('Government ID', '<input name="idref" type="file" required>')}${fld('Signed consent form', '<input name="consent" type="file" required>')}
+          <button class="ghost">Add performer</button></form></details></div>`).join('') || '<p class="muted">No videos yet.</p>'}</div>`;
+}
+
+/* ---------- admin ---------- */
+async function admin() {
+  if (!['admin', 'moderator'].includes(S.user?.role)) return go('#/');
+  const [st, cr, vd, rp] = await Promise.all([api('/admin/stats'), api('/admin/creators/pending'), api('/admin/videos/pending'), api('/admin/reports')]);
+  const btn = (a, id, t, c = '') => `<button class="sm ${c}" data-act="${a}" data-id="${id}">${t}</button>`;
+  app.innerHTML = `<div class="wrap"><h1>Admin</h1>
+    <div class="stats"><div class="box">Users<b>${st.users}</b></div><div class="box">Creators<b>${st.approvedCreators}</b></div><div class="box">Published<b>${st.publishedVideos}</b></div>
+    <div class="box">Revenue<b>${st.revenueByCurrency.map(r => money(r.total, r.cur)).join(' · ') || '0'}</b></div></div>
+    <h2>Creator ID review (${cr.length})</h2>${cr.map(c => `<div class="box"><div class="row"><b>${esc(c.display_name)}</b><span>${btn('cok', c.user_id, 'Approve')} ${btn('crej', c.user_id, 'Reject', 'ghost')}</span></div>
+      <p class="muted">${esc(c.email)} · DOB ${esc((c.date_of_birth || '').slice(0, 10))} · ${esc(c.doc_type)}: ${esc(c.storage_key)}</p></div>`).join('') || '<p class="muted">Nothing waiting.</p>'}
+    <h2>Videos awaiting review (${vd.length})</h2>${vd.map(v => `<div class="box"><div class="row"><b>${esc(v.title)}</b><span class="tag">${v.verified_performers}/${v.performers} performers verified</span></div>
+      <p class="muted">by ${esc(v.display_name)}</p><div id="pf${v.id}"></div>
+      <div class="row" style="margin-top:8px">${btn('perfs', v.id, 'Review performers', 'ghost')}<span><a class="btn ghost sm" href="#/v/${v.id}">Watch</a> ${btn('vok', v.id, 'Publish')} ${btn('vrej', v.id, 'Reject', 'ghost')}</span></div></div>`).join('') || '<p class="muted">Nothing waiting.</p>'}
+    <h2>Open reports (${rp.length})</h2>${rp.map(r => `<div class="box"><div class="row"><b>${esc(r.reason)}</b><span>${btn('ract', r.id, 'Action taken')} ${btn('rdis', r.id, 'Dismiss', 'ghost')}</span></div><p class="muted">${esc(r.details)}</p></div>`).join('') || '<p class="muted">No open reports.</p>'}</div>`;
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const { act, id } = b.dataset;
+  try {
+    if (act === 'perfs') {
+      const rows = await api(`/admin/videos/${id}/performers`);
+      $('#pf' + id).innerHTML = rows.map(r => `<div class="row"><span>${esc(r.performer_name)} · ${esc(String(r.date_of_birth).slice(0, 10))} · ${esc(r.id_document_key)}</span>${r.verified_at ? '<span class="tag">Verified</span>' : `<button class="sm" data-act="pverify" data-id="${r.id}">Verify ID &amp; consent</button>`}</div>`).join('') || '<p class="muted">No performers added.</p>';
+      return;
+    }
+    const M = { cok: [`creators/${id}/approve`], crej: [`creators/${id}/reject`], vok: [`videos/${id}/approve`],
+      vrej: [`videos/${id}/reject`, { reason: prompt('Reason for rejection') || 'policy' }], pverify: [`performers/${id}/verify`],
+      ract: [`reports/${id}/resolve`, { action: 'action' }], rdis: [`reports/${id}/resolve`, { action: 'dismiss' }] }[act];
+    await api('/admin/' + M[0], { method: 'POST', body: M[1] || {} });
+    toast('Done'); admin();
+  } catch (err) { toast(err.message); }
+});
+
+/* ---------- sessions ---------- */
+const needLogin = () => { ls('next', location.hash); go('#/login'); };
+const PREVIEW = HOSTED_PREVIEW || /^https?:\/\/(localhost|127\.)/.test(API);
+function startSession(r) {
+  S.token = r.token;
+  S.user = { ...r.user, currency: normalizeCurrency(r.user?.currency || ls('preferredCurrency') || 'USD') };
+  setDisplayCurrency(S.user.currency);
+  ls('token', r.token); ls('user', JSON.stringify(S.user)); nav();
+  const cr = ls('intent') === 'creator'; ls('intent', null);
+  const nx = ls('next'); ls('next', null); toast('Welcome, ' + S.user.username); go(cr ? '#/studio' : nx || '#/');
+}
+function demoLogin(email, cr, currency = ls('preferredCurrency') || 'USD') {
+  ls('intent', cr ? 'creator' : null);
+  const selectedCurrency = normalizeCurrency(currency);
+  setDisplayCurrency(selectedCurrency);
+  startSession({ token: 'demo', user: { id: 'demo-user', email: String(email || ''), username: String(email).split('@')[0] || 'guest', role: cr ? 'creator' : 'fan', currency: selectedCurrency, demo: true } });
+}
+const offline = e => { if (e.status) throw e; if (!PREVIEW) throw new Error('We can’t reach the server right now. Please try again in a moment.'); };
+function welcome(qs) {
+  const email = qs.get('email') || 'your email', cr = qs.get('as') === 'creator', demo = qs.get('demo') === '1';
+  app.innerHTML = `<div class="wrap narrow sent"><div class="box"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+    <h1 style="font-size:30px;margin:6px 0">Check your email</h1>
+    <p class="muted">We sent a verification link to <b style="color:var(--t)">${esc(email)}</b>. Open it to activate your account.${cr ? ' After you log in, we will take you to your creator application.' : ''}</p>
+    <a class="btn full" href="#/login">Go to log in</a>
+    ${demo ? '<button class="ghost full" id="skip" style="margin-top:10px">Preview: skip verification and sign in</button><p class="muted" style="font-size:13px">No backend is running, so no email was sent.</p>' : ''}</div></div>`;
+  if (demo) $('#skip').onclick = () => demoLogin(email, cr);
+}
+
+const upload = (id, file, out) => new Promise((ok, no) => {
+  const x = new XMLHttpRequest(); x.open('PUT', `${API}/videos/${id}/source`); x.setRequestHeader('Authorization', 'Bearer ' + S.token);
+  x.upload.onprogress = e => out.textContent = ' ' + Math.round(e.loaded / e.total * 100) + '%';
+  x.onload = () => x.status < 300 ? ok() : no(new Error(JSON.parse(x.responseText || '{}').error || 'Upload failed'));
+  x.onerror = () => no(new Error('Network error')); x.send(file);
+});
+const FORMS = {
+  async login(d) {
+    const currency = normalizeCurrency(ls('preferredCurrency') || 'USD');
+    try { startSession(await api('/auth/login', { method: 'POST', body: d })); }
+    catch (e) { offline(e); demoLogin(d.email, ls('intent') === 'creator', currency); }
+  },
+  async register(d) {
+    const cr = d.as === 'creator', to = demo => go(`#/welcome?email=${encodeURIComponent(d.email)}${cr ? '&as=creator' : ''}${demo ? '&demo=1' : ''}`);
+    const currency = setDisplayCurrency(d.currency || 'USD');
+    ls('intent', cr ? 'creator' : null); if (d.cname) ls('cname', d.cname);
+    try { startSession(await api('/auth/register', { method: 'POST', body: { ...d, currency, ageConfirmed: !!d.age } })); }
+    catch (e) { offline(e); demoLogin(d.email, cr, currency); }
+  },
+  async profileCurrency(d) {
+    const currency = normalizeCurrency(d.currency);
+    const user = S.user.demo ? { ...S.user, currency } : await api('/auth/me', { method: 'PATCH', body: { currency } });
+    S.user = { ...S.user, ...user, currency };
+    setDisplayCurrency(currency);
+    ls('user', JSON.stringify(S.user));
+    nav();
+    toast(`Currency updated to ${currency}`);
+    await profilePage();
+  },
+  async apply(d) {
+    const body = { displayName: d.displayName, dateOfBirth: d.dateOfBirth, baseCurrency: d.baseCurrency, docKey: d.id.name, // TODO: upload file to private storage and send its key
+      subscriptionPrice: d.price ? Math.round(d.price * 100) : null };
+    await api('/auth/become-creator', { method: 'POST', body }); toast('Submitted for review'); studio();
+  },
+  async newvideo(d, f) {
+    const ppv = d.access === 'pay_per_view';
+    await api('/videos', { method: 'POST', body: { title: d.title, description: d.description, access: d.access, currency: d.currency,
+      price: ppv ? Math.round(d.price * 100) : null, categoryIds: [...f.cats.selectedOptions].map(o => +o.value) } });
+    toast('Video created. Now upload the file.'); studio();
+  },
+  async upload(d, f) { await upload(f.dataset.vid, d.file, f.querySelector('.prog')); toast('Uploaded. Processing started.'); studio(); },
+  async perf(d, f) {
+    await api(`/videos/${f.dataset.vid}/performers`, { method: 'POST', body: { performerName: d.name, dateOfBirth: d.dob, idDocumentKey: d.idref.name, consentFormKey: d.consent.name } });
+    toast('Performer added'); f.reset();
+  },
+};
+document.addEventListener('submit', async e => {
+  const f = e.target.closest('form[data-f]'); if (!f) return;
+  e.preventDefault();
+  const btn = f.querySelector('.full') || f.querySelector('button'); btn.disabled = true; const er = f.querySelector('.err'); if (er) er.textContent = '';
+  try { await FORMS[f.dataset.f](Object.fromEntries(new FormData(f)), f); } catch (err) { const e = f.querySelector('.err'); e ? e.textContent = err.message : toast(err.message); }
+  if (btn) btn.disabled = false;
+});
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-t]');
+  if (t) { e.preventDefault(); const id = t.dataset.id; if (!S.user && !isDemo(id)) return needLogin(); flip(t.dataset.t, id); sync(); t.classList.remove('pop'); void t.offsetWidth; t.classList.add('pop'); afterToggle(t); return; }
+  const n = e.target.closest('[data-dir]');
+  if (n) { const tr = n.closest('.crow').querySelector('.track'); return tr.scrollBy({ left: n.dataset.dir * tr.clientWidth * 0.85, behavior: 'auto' }); }
+  const b = e.target.closest('[data-buy],[data-sub],[data-subc]');
+  if (b) { if (b.dataset.subc) return checkout(V[b.dataset.subc], 'subscription'); checkout(V[b.dataset.buy || b.dataset.sub], b.dataset.buy ? 'ppv' : 'subscription'); }
+});
+new MutationObserver(() => { app.querySelectorAll('.card').forEach((c, i) => c.style.setProperty('--i', Math.min(i, 10))); sync(); }).observe(app, { childList: true });
+nav(); route();
+</script>
+</body>
+>>>>>>> 3cdae5c (first commit)
 </html>
